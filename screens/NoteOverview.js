@@ -21,11 +21,8 @@ export default function NoteOverview() {
 	};
 
 	cleanNotes();
-	const allNotes = notes.map((noteArr) => (
-		<NoteItem
-			title={noteArr[0]}
-			content={noteArr[1]}
-		/>
+	const allNotes = notes.map((noteArr, index) => (
+		<NoteItem uniqueKey={index} title={noteArr[0]} content={noteArr[1]} />
 	));
 
 	return <ScrollView style={styles.noteOverview}>{allNotes}</ScrollView>;

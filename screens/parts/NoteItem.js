@@ -5,7 +5,7 @@ import DropDownItem from "react-native-drop-down-item";
 
 export default function NoteItem(props) {
 	return (
-		<ListItem button bottomDivider>
+		<ListItem key={props.uniqueKey} button bottomDivider onPress={() => console.log(props.uniqueKey)}>
 			<ListItem.Content>
 				<ListItem.Title>{props.title}</ListItem.Title>
 				<ListItem.Subtitle>{props.content}</ListItem.Subtitle>

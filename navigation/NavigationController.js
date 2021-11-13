@@ -9,7 +9,7 @@ const Tab = createBottomTabNavigator();
 import React from "react";
 import { StyleSheet, Text, Image, View } from "react-native";
 
-export default function TabController() {
+export default function NavigationController() {
 	return (
 		<Tab.Navigator
 			tabBarOptions={{
