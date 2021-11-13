@@ -36,7 +36,9 @@ export default function NoteOverview() {
 	));
 
 	if (details[0]) {
-		return <NoteDetails handleDetails={handleDetails} noteKey={details[1]} />;
+		return (
+			<NoteDetails handleDetails={handleDetails} noteKey={details[1]} />
+		);
 	} else {
 		return <ScrollView style={styles.noteOverview}>{allNotes}</ScrollView>;
 	}

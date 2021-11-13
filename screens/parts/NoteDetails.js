@@ -31,10 +31,10 @@ export default function NoteDetails(props) {
 }
 
 const styles = StyleSheet.create({
-    text: {
-        paddingHorizontal: 10,
-        paddingBottom: 20,
-    },
+	text: {
+		paddingHorizontal: 10,
+		paddingBottom: 20,
+	},
 	labelText: {
 		paddingHorizontal: 10,
 		fontSize: 24,

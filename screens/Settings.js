@@ -4,7 +4,7 @@ import { StyleSheet, Text, View } from "react-native";
 export default function SettingsView() {
 	return (
 		<View>
-			<Text style={{ alignItems: "center" }}>Settings</Text>
+			<Text style={{ alignItems: "center" }}>Settings coming soon</Text>
 		</View>
 	);
 }
