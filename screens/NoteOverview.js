@@ -3,10 +3,11 @@ import { StyleSheet, ScrollView, RefreshControl } from "react-native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
 import NoteItem from "./parts/NoteItem";
+import NoteDetails from "./parts/NoteDetails";
 
 export default function NoteOverview() {
 	const [notes, setNotes] = useState([]);
-	const [showDetails, setDetails] = useState(false);
+	const [details, setDetails] = useState([false, -1]);
 
 	const cleanNotes = async () => {
 		await AsyncStorage.getItem("allNotes")
@@ -20,12 +21,25 @@ export default function NoteOverview() {
 			});
 	};
 
+	const handleDetails = (show, noteKey) => {
+		setDetails([show, noteKey]);
+	};
+
 	cleanNotes();
 	const allNotes = notes.map((noteArr, index) => (
-		<NoteItem uniqueKey={index} title={noteArr[0]} content={noteArr[1]} />
+		<NoteItem
+			handleDetails={handleDetails}
+			uniqueKey={index}
+			title={noteArr[0]}
+			content={noteArr[1]}
+		/>
 	));
 
-	return <ScrollView style={styles.noteOverview}>{allNotes}</ScrollView>;
+	if (details[0]) {
+		return <NoteDetails handleDetails={handleDetails} noteKey={details[1]} />;
+	} else {
+		return <ScrollView style={styles.noteOverview}>{allNotes}</ScrollView>;
+	}
 }
 
 const styles = StyleSheet.create({

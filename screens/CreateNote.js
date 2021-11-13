@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { StyleSheet, Text, Button, View, TextInput, Alert } from "react-native";
+import { Input } from "react-native-elements";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
 export default function CreateNoteView() {
@@ -35,14 +36,14 @@ export default function CreateNoteView() {
 	return (
 		<View>
 			<Text style={styles.labelText}>Note Title</Text>
-			<TextInput
+			<Input
 				style={styles.textInput}
 				placeholder={"Note title"}
 				onChangeText={(text) => setTitle(text)}
 				value={title}
 			/>
 			<Text style={styles.labelText}>Note Content</Text>
-			<TextInput
+			<Input
 				style={[
 					styles.textInput,
 					{
@@ -56,7 +57,7 @@ export default function CreateNoteView() {
 				multiline={true}
 				placeholder={"Note Content"}
 			/>
-			<Button onPress={handleSubmit} title="Add Note" />
+			<Button onPress={handleSubmit} title={"Add Note"} />
 		</View>
 	);
 }
@@ -65,7 +66,7 @@ const styles = StyleSheet.create({
 	textInput: {
 		width: "90%",
 		height: 44,
-		backgroundColor: "#f1f3f6",
+		backgroundColor: "#ffffff",
 		borderRadius: 6,
 		paddingHorizontal: 10,
 	},
