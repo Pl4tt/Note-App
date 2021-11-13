@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import { StyleSheet, Text, View, ScrollView } from "react-native";
+import { StyleSheet, ScrollView, RefreshControl } from "react-native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
-import NoteItem from "./parts/Note";
+import NoteItem from "./parts/NoteItem";
 
 export default function NoteOverview() {
 	const [notes, setNotes] = useState([]);
