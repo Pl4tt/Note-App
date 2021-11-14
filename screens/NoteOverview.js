@@ -8,7 +8,7 @@ import NoteDetails from "./parts/NoteDetails";
 export default function NoteOverview() {
 	const [notes, setNotes] = useState([]);
 	const [details, setDetails] = useState([false, -1]);
-
+	
 	const cleanNotes = async () => {
 		await AsyncStorage.getItem("allNotes")
 			.then((res) => JSON.parse(res))
@@ -26,10 +26,10 @@ export default function NoteOverview() {
 	};
 
 	cleanNotes();
-	const allNotes = notes.map((noteArr, index) => (
+	const allNotes = notes.slice(1).map((noteArr, index) => (
 		<NoteItem
 			handleDetails={handleDetails}
-			uniqueKey={index}
+			uniqueKey={index+1}
 			title={noteArr[0]}
 			content={noteArr[1]}
 		/>
@@ -37,7 +37,7 @@ export default function NoteOverview() {
 
 	if (details[0]) {
 		return (
-			<NoteDetails handleDetails={handleDetails} noteKey={details[1]} />
+			<NoteDetails setNotes={setNotes} handleDetails={handleDetails} noteKey={details[1]} />
 		);
 	} else {
 		return <ScrollView style={styles.noteOverview}>{allNotes}</ScrollView>;
